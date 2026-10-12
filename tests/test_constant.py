@@ -10,4 +10,3 @@ class TestPi:
     def test_pi(self):
         """Three terms of Ramanujan's series give pi to double precision."""
         assert pi(2) == pytest.approx(np.pi, abs=1e-12)
-        
