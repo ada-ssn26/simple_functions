@@ -1,6 +1,6 @@
 import pytest
 
-from simple_functions import my_sum, factorial
+from simple_functions import my_sum, factorial, sin_function
 
 
 class TestSimpleFunctions:
@@ -23,3 +23,17 @@ class TestSimpleFunctions:
     def test_factorial(self, number, expected):
         """factorial is right for small numbers, including 0! = 1."""
         assert factorial(number) == expected
+
+    @pytest.mark.parametrize('number, expected', [
+            (0, 0),
+            (30, 0.5),
+            (90, 1),
+            (150, 0.5),
+            (180, 0),
+            (210, -0.5),
+            (270, -1),
+            (330, -0.5),
+        ])
+    def test_sin_function(self, number, expected):
+        """sin_function is right for some known angles."""
+        assert sin_function(number) == pytest.approx(expected, abs=1e-12)
