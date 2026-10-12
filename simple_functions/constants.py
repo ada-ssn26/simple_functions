@@ -2,9 +2,11 @@ from functools import cache
 
 from numpy import sqrt
 
+from scipy import constants
+
 from simple_functions.functions1 import factorial
 
-__all__ = ['pi']
+__all__ = ['pi', 'nice_pi']
 
 
 def pi(terms=1):
@@ -17,3 +19,7 @@ def rsum(n):
     """Return the sum of the terms k = 0, 1, ..., n of Ramanujan's series."""
     t = factorial(4*n)*(1103+26390*n)/(factorial(n)**4*396**(4*n))
     return t + rsum(n-1) if n else t
+
+
+def nice_pi():
+    return constants.pi
